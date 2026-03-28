@@ -1,0 +1,44 @@
+name: Deploy Backend to VPS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.VPS_IP }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to VPS
+        env:
+          VPS_IP: ${{ secrets.VPS_IP }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          ssh $VPS_USER@$VPS_IP << ENDSSH
+            set -e
+            cd /var/www/api.la-peche-evenements
+            git pull origin main
+            pnpm install
+            pnpm build
+            if docker compose version >/dev/null 2>&1; then
+              docker compose restart
+            else
+              docker-compose restart
+            fi
+            echo "✅ Backend déployé"
+          ENDSSH
+
+      - name: Verify
+        env:
+          VPS_IP: ${{ secrets.VPS_IP }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: ssh $VPS_USER@$VPS_IP 'docker ps --filter name=la-peche-evenements-strapi --format "{{.Names}} - {{.Status}}"'
