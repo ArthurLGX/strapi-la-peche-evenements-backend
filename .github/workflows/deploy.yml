@@ -18,6 +18,14 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.VPS_IP }} >> ~/.ssh/known_hosts
 
+      - name: Sync .env from ENV_PRODUCTION secret
+        env:
+          VPS_IP: ${{ secrets.VPS_IP }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          ENV_PRODUCTION: ${{ secrets.ENV_PRODUCTION }}
+        run: |
+          printf '%s\n' "$ENV_PRODUCTION" | ssh $VPS_USER@$VPS_IP 'cat > /var/www/api.la-peche-evenements/.env'
+
       - name: Deploy to VPS
         env:
           VPS_IP: ${{ secrets.VPS_IP }}
