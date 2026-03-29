@@ -41,7 +41,8 @@ jobs:
           ssh $VPS_USER@$VPS_IP << ENDSSH
             set -e
             cd /var/www/api.la-peche-evenements
-            git pull origin main
+            git fetch origin main
+            git reset --hard origin/main
             pnpm install
             pnpm build
             if docker compose version >/dev/null 2>&1; then
