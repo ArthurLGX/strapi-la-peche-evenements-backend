@@ -12,11 +12,18 @@ jobs:
 
     steps:
       - name: Setup SSH
+        env:
+          VPS_IP: ${{ secrets.VPS_IP }}
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.VPS_IP }} >> ~/.ssh/known_hosts
+          set -euo pipefail
+          mkdir -p "$HOME/.ssh"
+          chmod 700 "$HOME/.ssh"
+          if [ -z "${VPS_IP:-}" ]; then echo "::error::Secret VPS_IP vide — ajoutez-le dans le dépôt (Settings → Secrets)."; exit 1; fi
+          echo "${{ secrets.VPS_SSH_KEY }}" > "$HOME/.ssh/id_rsa"
+          chmod 600 "$HOME/.ssh/id_rsa"
+          if [ ! -s "$HOME/.ssh/id_rsa" ]; then echo "::error::Secret VPS_SSH_KEY vide — collez la clé privée complète."; exit 1; fi
+          printf '%s\n' 'Host *' '  StrictHostKeyChecking accept-new' >> "$HOME/.ssh/config"
+          chmod 600 "$HOME/.ssh/config"
 
       - name: Sync .env from ENV_PRODUCTION secret
         env:
