@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_landing_photo_cells",
+  "info": {
+    "displayName": "Cellule photobooth",
+    "description": "Étape (01…), titre et corps pour la grille photobooth"
+  },
+  "options": {},
+  "attributes": {
+    "step": {
+      "type": "string",
+      "required": true,
+      "maxLength": 8
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

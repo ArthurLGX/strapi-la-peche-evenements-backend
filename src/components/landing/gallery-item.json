@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_landing_gallery_items",
+  "info": {
+    "displayName": "Image grille",
+    "description": "Vignette + texte au survol ; cellules optionnelles (photobooth)"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "alt": {
+      "type": "string",
+      "required": true
+    },
+    "typeLabel": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "photoCells": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.photo-cell"
+    }
+  }
+}

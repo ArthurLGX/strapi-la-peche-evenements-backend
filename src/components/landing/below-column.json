@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_landing_below_columns",
+  "info": {
+    "displayName": "Colonne sous-grille",
+    "description": "Titres + textes (Particuliers / Location matériel)"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_landing_text_blocks",
+  "info": {
+    "displayName": "Bloc texte intro",
+    "description": "Titre + contenu (section d’intro sous le titre du panneau)"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

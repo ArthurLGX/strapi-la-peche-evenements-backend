@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "landing_sections",
+  "info": {
+    "singularName": "landing-section",
+    "pluralName": "landing-sections",
+    "displayName": "Section landing",
+    "description": "Une entrée par panneau vidéo : particuliers, professionnels, location de matériel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "enumeration",
+      "enum": ["particuliers", "professionnels", "location-materiel"],
+      "required": true,
+      "unique": true
+    },
+    "heroVideo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["videos", "files"]
+    },
+    "introBlocks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.text-block"
+    },
+    "galleryItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.gallery-item"
+    },
+    "belowGridColumns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.below-column"
+    },
+    "brandingColumns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.branding-column"
+    }
+  }
+}
