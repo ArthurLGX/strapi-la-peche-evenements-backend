@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "musiques",
+  "info": {
+    "singularName": "musique",
+    "pluralName": "musiques",
+    "displayName": "Musique",
+    "description": "Extraits audio page Musique : titre, artiste, style, BPM et fichier MP3"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order": {
+      "type": "integer",
+      "required": true,
+      "default": 0,
+      "min": 0
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "artist": {
+      "type": "string",
+      "required": true
+    },
+    "style": {
+      "type": "string",
+      "required": true
+    },
+    "bpm": {
+      "type": "integer",
+      "required": false,
+      "min": 1,
+      "max": 400
+    },
+    "audio": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["audios", "files"]
+    }
+  }
+}
