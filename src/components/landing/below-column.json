@@ -2,7 +2,7 @@
   "collectionName": "components_landing_below_columns",
   "info": {
     "displayName": "Colonne sous-grille",
-    "description": "Titres + textes (Particuliers / Location matériel)"
+    "description": "Titre, texte, image optionnelle (pros), icône réservée usage futur"
   },
   "options": {},
   "attributes": {
@@ -13,6 +13,20 @@
     "content": {
       "type": "text",
       "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "imageAlt": {
+      "type": "string",
+      "required": false
+    },
+    "icon": {
+      "type": "string",
+      "required": false
     }
   }
 }

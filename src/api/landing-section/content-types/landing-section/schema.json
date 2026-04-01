@@ -38,11 +38,6 @@
       "type": "component",
       "repeatable": true,
       "component": "landing.below-column"
-    },
-    "brandingColumns": {
-      "type": "component",
-      "repeatable": true,
-      "component": "landing.branding-column"
     }
   }
 }
