@@ -38,6 +38,11 @@
       "type": "component",
       "repeatable": true,
       "component": "landing.below-column"
+    },
+    "processSteps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.process-step"
     }
   }
 }

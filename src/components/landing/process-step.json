@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_landing_process_steps",
+  "info": {
+    "displayName": "Etape process",
+    "description": "Numero, titre, sous-titre et texte detaille"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": false
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
