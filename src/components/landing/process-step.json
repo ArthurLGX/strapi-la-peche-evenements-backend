@@ -2,7 +2,7 @@
   "collectionName": "components_landing_process_steps",
   "info": {
     "displayName": "Etape process",
-    "description": "Numero, titre, sous-titre et texte detaille"
+    "description": "Numero, titre, sous-titre et texte riche (gras, liens, listes, titres)"
   },
   "options": {},
   "attributes": {
@@ -19,7 +19,7 @@
       "required": false
     },
     "content": {
-      "type": "text",
+      "type": "blocks",
       "required": true
     }
   }
