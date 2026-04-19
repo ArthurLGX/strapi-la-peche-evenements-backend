@@ -24,6 +24,12 @@
       "required": false,
       "allowedTypes": ["videos", "files"]
     },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
     "introBlocks": {
       "type": "component",
       "repeatable": true,
